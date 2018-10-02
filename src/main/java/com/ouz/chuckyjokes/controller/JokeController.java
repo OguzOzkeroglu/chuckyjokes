@@ -14,17 +14,17 @@ import com.ouz.chuckyjokes.service.JokeService;
 
 @Controller
 public class JokeController {
-	private JokeService jokeService;
+	JokeService jokeService;
 
 	@Autowired
 	public JokeController(JokeService jokeService) {
 		this.jokeService = jokeService;
 	}
-	
-	@RequestMapping({"/", ""})
-	public String showJoke (Model model) {
+
+	@RequestMapping({ "/", "" })
+	public String showJoke(Model model) {
 		model.addAttribute("joke", jokeService.getJoke());
-		
+
 		return "chucknorris";
 	}
 }
